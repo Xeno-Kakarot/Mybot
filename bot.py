@@ -7,6 +7,8 @@ from config import Config  # Import configurations from config.py
 # Initialize the Pyrogram client
 app = Client("video_downloader", bot_token=Config.BOT_TOKEN)
 
+INSTAGRAM_API_URL = "https://karma-api2.vercel.app/instadl"
+
 # Helper function for downloading YouTube videos
 def download_youtube_video(url, format="video"):
     ydl_opts = {
@@ -25,7 +27,8 @@ def download_youtube_video(url, format="video"):
 
 # Helper function for downloading Instagram Reels
 def download_instagram_reel(url):
-    api_url = f"https://some-instagram-api.com/download?url={url}"  # Example
+   # api_url = f"https://karma-api2.vercel.app/instadl}"  # Example
+    api_url = f"{INSTAGRAM_API_URL}?url={url}"
     response = requests.get(api_url)
     
     reel_file = "downloads/insta_reel.mp4"
